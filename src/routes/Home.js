@@ -3,19 +3,22 @@ import axios from "axios";
 import Movie from "../components/Movie";
 import "./Home.css";
 
+const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
+const url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=ko-KR`;
+
+//"https://yts-proxy.now.sh/list_movies.json?sort_by=rating"
+
 class Home extends React.Component {
   state = {
     isLoading: true,
-    movies: []
+    results: []
   };
 
   getMovies = async () => {
     const {
-      data: {
-        data: {movies}
-      }
-    } = await axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating");
-    this.setState({movies, isLoading: false})
+      data: {results}
+    } = await axios.get(url);
+    this.setState({results, isLoading: false})
   };
 
   componentDidMount() {
@@ -23,7 +26,7 @@ class Home extends React.Component {
   };
 
   render() {
-    const { isLoading, movies } = this.state;
+    const { isLoading, results } = this.state;
     return (
       <section className="container">
         {isLoading
@@ -31,15 +34,14 @@ class Home extends React.Component {
             <span className="loader__text">Loading...</span>
           </div>)
           : (<div className="movies">
-            {movies.map(movie => (
+            {results.map(movie => (
               <Movie
               key={movie.id}
               id={movie.id}
               year={movie.year}
               title={movie.title}
-              summary={movie.summary}
-              poster={movie.medium_cover_image}
-              genres={movie.genres}
+              summary={movie.overview}
+              poster={movie.poster_path}
               />
             ))}
           </div>)
