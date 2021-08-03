@@ -15,13 +15,12 @@ function Movie({id, year, title, summary, poster}) {
                 summary,
                 poster
             }
-        }}>
+        }} style={{textDecoration: 'none'}}>
             <div className="movie">
                 <img src={poster_url+poster} alt={title} title={title} />
                 <div className="movie__data">
                     <h3 className="movie__title">{title}</h3>
                     <h5 className="movie__year">{year}</h5>
-                    <p className="movie__summary">{summary.slice(0, 140)}...</p>
                 </div>
             </div>
         </Link>
