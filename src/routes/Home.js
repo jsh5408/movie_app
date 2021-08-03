@@ -36,7 +36,7 @@ class Home extends React.Component {
               <Movie
               key={movie.id}
               id={movie.id}
-              year={movie.year}
+              year={movie.release_date}
               title={movie.title}
               summary={movie.overview}
               poster={movie.poster_path}
