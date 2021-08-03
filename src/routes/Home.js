@@ -6,8 +6,6 @@ import "./Home.css";
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 const url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=ko-KR`;
 
-//"https://yts-proxy.now.sh/list_movies.json?sort_by=rating"
-
 class Home extends React.Component {
   state = {
     isLoading: true,
