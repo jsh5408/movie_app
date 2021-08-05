@@ -33,6 +33,7 @@ const MovieList = ({results}) => {
                     title={movie.title}
                     summary={movie.overview}
                     poster={movie.poster_path}
+                    backdrop={movie.backdrop_path}
                     />
                 ))}
             </div>

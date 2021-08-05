@@ -5,7 +5,7 @@ import "./Movie.css";
 
 const poster_url = `https://www.themoviedb.org/t/p/original/`;
 
-function Movie({id, year, title, summary, poster}) {
+function Movie({id, year, title, summary, poster, backdrop}) {
     return (
         <Link to={{
             pathname: `movie/:id`,
@@ -13,7 +13,8 @@ function Movie({id, year, title, summary, poster}) {
                 year,
                 title,
                 summary,
-                poster
+                poster,
+                backdrop
             }
         }} style={{textDecoration: 'none'}}>
             <div className="movie">
