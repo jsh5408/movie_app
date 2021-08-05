@@ -1,10 +1,11 @@
 import React from "react";
 import axios from "axios";
-import Movie from "../components/Movie";
+import MovieList from "../components/MovieList";
+import MainImage from "../components/MainImage";
 import "./Home.css";
 
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
-const url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=ko-KR`;
+const url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=ko-KR&region=KR`;
 
 class Home extends React.Component {
   state = {
@@ -25,24 +26,25 @@ class Home extends React.Component {
 
   render() {
     const { isLoading, results } = this.state;
+    const main = results[0];
     return (
       <section className="container">
         {isLoading
           ? (<div className="loader">
             <span className="loader__text">Loading...</span>
           </div>)
-          : (<div className="movies">
-            {results.map(movie => (
-              <Movie
-              key={movie.id}
-              id={movie.id}
-              year={movie.release_date}
-              title={movie.title}
-              summary={movie.overview}
-              poster={movie.poster_path}
-              />
-            ))}
-          </div>)
+          : (
+            <div className="main_home">
+              {main && (
+                <MainImage
+                  image={main.backdrop_path}
+                  title={main.title}
+                  text={main.overview}
+                />
+              )}
+              <MovieList results={results}/>
+            </div>
+          )
         }
       </section>
     );

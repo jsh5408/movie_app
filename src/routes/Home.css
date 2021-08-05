@@ -14,13 +14,17 @@
     align-items: center;
     font-weight: 300;
   }
+
+  .main_home {
+    width: 100%;
+    margin: 0;
+  }
   
   .movies {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(5, minmax(220px, 1fr));
     /*grid-gap: 100px;*/
     padding: 50px;
-    width: 100%;
     padding-top: 70px;
   }
   

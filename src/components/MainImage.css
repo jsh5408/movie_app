@@ -1,0 +1,24 @@
+.main_image {
+    background: linear-gradient(to bottom, white 39%, white 41%, rgba(0,0,0,0.65) 100%);
+    height: 100%;
+    background-size: 100%, cover;
+    background-position: center, center;
+    width: 100%;
+    position: relative;
+}
+
+.description {
+    position: absolute;
+    max-width: 500px;
+    bottom: 2rem;
+    margin-left: 2rem;
+}
+
+h2 {
+    color: white;
+}
+
+p {
+    color: white;
+    font-size: 1rem;
+}

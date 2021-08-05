@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./Movie.css";
 
-const poster_url = `https://www.themoviedb.org/t/p/w220_and_h330_face/`;
+const poster_url = `https://www.themoviedb.org/t/p/original/`;
 
 function Movie({id, year, title, summary, poster}) {
     return (
