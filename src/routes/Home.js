@@ -5,19 +5,22 @@ import MainImage from "../components/MainImage";
 import "./Home.css";
 
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
-const url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=ko-KR&region=KR`;
+const movie_url = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=ko-KR&region=KR`;
+const genres_url = `https://api.themoviedb.org/3//genre/movie/list?api_key=${API_KEY}&language=ko-KR&region=KR`;
 
 class Home extends React.Component {
   state = {
     isLoading: true,
-    results: []
+    results: [],
+    genres: []
   };
 
   getMovies = async () => {
     const {
       data: {results}
-    } = await axios.get(url);
-    this.setState({results, isLoading: false})
+    } = await axios.get(movie_url);
+    const {data: {genres}} = await axios.get(genres_url);
+    this.setState({results, genres, isLoading: false})
   };
 
   componentDidMount() {
@@ -25,7 +28,7 @@ class Home extends React.Component {
   };
 
   render() {
-    const { isLoading, results } = this.state;
+    const { isLoading, results, genres } = this.state;
     const main = results[0];
     return (
       <section className="container">
@@ -42,7 +45,7 @@ class Home extends React.Component {
                   text={main.overview}
                 />
               )}
-              <MovieList results={results}/>
+              <MovieList results={results} genres={genres}/>
             </div>
           )
         }

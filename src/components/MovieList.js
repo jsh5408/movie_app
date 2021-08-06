@@ -4,7 +4,7 @@ import Pagination from "./Paging/Paging";
 import { paginate } from "./Paging/paginate";
 import "./MovieList.css";
 
-const MovieList = ({results}) => {
+const MovieList = ({results, genres}) => {
     const [movies, setMovies] = useState({
         data: results,
         pageSize: 5,
