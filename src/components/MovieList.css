@@ -1,3 +1,8 @@
+.movielist {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
 .movies {
     display: grid;
     grid-template-columns: repeat(5, minmax(220px, 1fr));

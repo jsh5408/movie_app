@@ -5,7 +5,7 @@ const poster_url = `https://www.themoviedb.org/t/p/original/`;
 
 function MainImage(props) {
   return (
-    <div className="main_image"
+    <div className="main__image"
         style={{ backgroundImage: `url(${poster_url+props.image})` }}
     >
         <div className="description">
