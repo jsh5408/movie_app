@@ -1,6 +1,6 @@
 .main__image {
     background: linear-gradient(to bottom, white 39%, white 41%, rgba(0,0,0,0.65) 100%);
-    height: 100%;
+    height: 700px;
     background-size: 100%, cover;
     background-position: center, center;
     width: 100%;
@@ -14,11 +14,11 @@
     margin-left: 2rem;
 }
 
-h2 {
+.description h2 {
     color: white;
 }
 
-p {
+.description p {
     color: white;
     font-size: 1rem;
 }

@@ -4,7 +4,7 @@ import Pagination from "./Paging/Paging";
 import { paginate } from "./Paging/paginate";
 import "./MovieList.css";
 
-const MovieList = ({results, genres}) => {
+const MovieList = ({results, genres, name}) => {
     const [movies, setMovies] = useState({
         data: results,
         pageSize: 5,
@@ -24,6 +24,7 @@ const MovieList = ({results, genres}) => {
 
     return (
         <section className="movielist">
+            <h2>{name}</h2>
             <div className="movies">
                 {pagedMovies.map(movie => (
                     <Movie
