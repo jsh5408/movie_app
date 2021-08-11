@@ -1,10 +1,10 @@
 import React, {useState} from "react";
-import Movie from "./Movie";
-import Pagination from "./Paging/Paging";
-import { paginate } from "./Paging/paginate";
-import "./MovieList.css";
+import Movie from "./TV";
+import Pagination from "../Paging/Paging";
+import { paginate } from "../Paging/paginate";
+import "./TVList.css";
 
-const MovieList = ({results, genres, name}) => {
+const TVList = ({results, genres, name}) => {
     const [movies, setMovies] = useState({
         data: results,
         pageSize: 5,
@@ -17,7 +17,8 @@ const MovieList = ({results, genres, name}) => {
 
     const { data, pageSize, currentPage } = movies;
     const pagedMovies = paginate(data, currentPage, pageSize); // 페이지 별로 아이템이 속한 배열을 얻어옴
-    
+    console.log(movies)
+    console.log(results)
     if (movies.data === undefined)
         return <p>영화 정보가 없습니다.</p>;
 
@@ -33,8 +34,8 @@ const MovieList = ({results, genres, name}) => {
                     <Movie
                     key={movie.id}
                     id={movie.id}
-                    year={movie.release_date}
-                    title={movie.title}
+                    year={movie.first_air_date}
+                    title={movie.name}
                     summary={movie.overview}
                     poster={movie.poster_path}
                     backdrop={movie.backdrop_path}
@@ -52,4 +53,4 @@ const MovieList = ({results, genres, name}) => {
 }
 
 
-export default MovieList;
+export default TVList;
